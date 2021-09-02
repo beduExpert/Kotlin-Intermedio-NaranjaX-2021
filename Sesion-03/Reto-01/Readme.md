@@ -1,4 +1,4 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 05`](../Readme.md) > `Reto 1`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 03`](../Readme.md) > `Reto 1`
 	
 ## Reto 1 
 
@@ -18,11 +18,11 @@
 Apoyándonos del diagrama que representa el ciclo de vida de un ___Fragment___, realizaremos las tareas enumeradas a continuación.
 
  <img src="../images/fragment-cycle.png">
- 
- 
+
+
  También nos apoyaremos de esta tabla que relaciona el ciclo de vida de nuestro fragment con el ciclo del Activity al que lo adjuntamos.
- 
- 
+
+
 Estado del _Activity_ |	Callbacks del _Fragment_ llamados |	Ciclo de vida del _Fragment_
 --- | --- | ---
 Created	| onAttach(), onCreate(), onCreateView(), onActivityCreated() | Fragment agregado y layout inflado.

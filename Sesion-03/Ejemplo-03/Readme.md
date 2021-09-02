@@ -1,4 +1,4 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 05`](../Readme.md) > `Ejemplo 3`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 03`](../Readme.md) > `Ejemplo 3`
 
 ## Ejemplo 3: Fragment Transactions
 
@@ -211,7 +211,7 @@ if(fragmentTag!=null){
     Toast.makeText(this, "No hay ningún FragmentBedu agregado",Toast.LENGTH_SHORT).show()
 }
 ```
-            
+
 Corremos nuevamente el código y hacemos los siguientes ejercicios. Discutir los resultados y analizar cómo se comporta el ciclo de vida para cada uno.
 
 - Remover sin que exista un ___Fragment___
@@ -304,7 +304,7 @@ Los ejercicios son los siguientes:
 - Agregar un _FragmentBedu_ y reemplazarlo por un _FragmentBeto_
 - Crear varios _FragmentBedu_ y _FragmentBeto_ y reemplazarlos por cualquiera de los fragments.
 
-[`Anterior`](../Reto-02/Readme.md) | [`Siguiente`](../Proyecto/Readme.md)
+[`Anterior`](../Reto-02/Readme.md) | [`Siguiente`](../Readme.md)
 
 
 

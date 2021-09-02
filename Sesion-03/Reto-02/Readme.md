@@ -1,4 +1,4 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 05`](../Readme.md) > `Reto 2`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 03`](../Readme.md) > `Reto 2`
 	
 ## Reto 2 
 
@@ -22,7 +22,7 @@ El ejerecicio anterior tiene un layout similar a este:
 Sin embargo, queremos que para el caso de una tablet, tengamos una Interfaz más parecida a la del diagrama:
 
  <img src="../Ejemplo-02/images/1.png" width="70%">
- 
+
  El ejercicio consistirá en adaptar el layout para tenerlo de la forma vertical para la versión ___portrait___, como para la ___landscape___.
 
 1. Utilizando el ejemplo anterior, modificar únicamente el layout para dispositivos grandes (la lista debe abarcar el 40% de la pantalla).

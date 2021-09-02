@@ -1,12 +1,12 @@
-[`Kotlin-Intermedio`](../Readme.md) > `Sesión 5`
+[`Kotlin-Intermedio`](../Readme.md) > `Sesión 3`
 
 
-## Sesión 5: Fragments
+## Sesión 3: Fragments
 
 <div style="text-align: justify;">
   
-  
-  
+
+
 ### Introducción: Qué es un Fragment 
 
 Como el nombre lo indica, es un fragmento de la UI que implementa tanto un ciclo de vida y eventos propios. utilizaremos Fragments cuando requiramos una interfaz de usuario dinámica, cuando necesitemos reutilizar un pedazo de interfaz con funcionalidad en diversos puntos de nuestra app, cuando la navegación en una parte del flujo de la app sea mejor manejable al usar Fragments.
@@ -64,24 +64,9 @@ Ejecutaremos una serie de transacciones para los fragments dentro de un contened
 
 - [**`EJEMPLO 3`**](Ejemplo-03/Readme.md)
 
----
 
 
-### 3. Proyecto :hammer:
-
-Con los temas anteriores, elige entre la construcción de una vista lista-detalle, un flujo de Fragments, o idea tu propuesta.
-
-- [**`PROYECTO SESIÓN 5`**](Proyecto/Readme.md)
-
-### 4. Postwork :memo:
-
-Con lo aprendido en esta sesión, continúa con la implementación de Fragments en tu proyecto.
-
-- [**`POSTWORK SESIÓN 5`**](Postwork/Readme.md)
-
-<br/>
-
-[`Anterior`](../Sesion-04/Readme.md) | [`Siguiente`](../Sesion-06/Readme.md)      
+[`Anterior`](../Sesion-02/Readme.md) | [`Siguiente`](../Sesion-04/Readme.md)      
 
 </div>
 
