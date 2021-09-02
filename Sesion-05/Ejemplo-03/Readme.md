@@ -1,14 +1,14 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 05`](../Readme.md) > `Ejemplo 3`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 04`](../Readme.md) > `Ejemplo 3`
 
-## Ejemplo 3: Fragment Transactions
+## Ejemplo 3: RecyclerView
 
 <div style="text-align: justify;">
 
 ### 1. Objetivos :dart:
 
-- Crear y remover _Fragments_ programáticamente.
-- Mostrar y esconder un _Fragment_ en específico.
-- Visualizar cómo las transacciones afectan al ciclo de vida de un _Fragment_.
+- Comprender el concepto y funcionamiento de un RecyclerView
+- Ventajas y desventajas
+- Cuál es el núcleo de la diferencia con una ListView
 
 ### 2. Requisitos :clipboard:
 
@@ -17,294 +17,246 @@
 
 ### 3. Desarrollo :computer:
 
-Hasta ahora hemos declarado ___Fragments___ por medio del tag ___fragment___ dentro del archivo _xml_ del layout de un _Activity_, pero también esto se puede hacer de forma programática utilizando un _contenedor_, tal como un ___ViewGroup___. En este caso, vamos a utilizar operaciones para manipular el ciclo de vida de un ___Fragmnet___ mediante el ___supportFragmentManager___. La lista de acciones que haremos son:
+En este proyecto, crearemos una lista de contactos de teléfono sencilla con un RecyclerView.
 
-* Agregar un _Fragment_
-* Removerlo
-* Ocultarlo
-* Mostrarlo
-* Agregar un segundo _Fragment_
-* Remover el segundo _Fragment_
-* Attach (adjuntar)
-* Detach (remover)
-* Reemplazar por un _Fragment_
-* Reemplazar por el segundo _Fragment_
+1.- Abrir un proyecto con una Actividad Básica (Basic Activity), para dejar preparado el terreno del [Reto 02](../Reto-02)
 
-1. Abre __Android Studio__ y crea un nuevo proyecto con Activity Vacía (Empty Activity).
+2.- A diferencia de las Actividades vacías, en este caso lo que modificaremos será el archivo ***content_main.xml***, y se ingresará un simple RecyclerView ocupando todo el layout:
 
-2. Crearemos un nuevo _layout_ para nuestro ___activity_main.xml___, de modo que en la parte superior tengamos un arreglo horizontal scrolleable de botones que corresponderán a las acciones a realizar. Bajo esta barra de botones, tendremos el ___FrameLayout___ que fungirá como contenedor para agregar nuestros ___Fragments___. 
-
-```xml 
+```xml
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <HorizontalScrollView
-        android:id="@+id/scroll"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <LinearLayout
-            android:paddingVertical="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/addButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Agregar" />
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
 
-            <Button
-                android:id="@+id/removeButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Remover" />
-            <Button
-                android:id="@+id/hideButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Esconder" />
-            <Button
-                android:id="@+id/showButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mostrar" />
-            <Button
-                android:id="@+id/add2Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Agregar 2" />
-            <Button
-                android:id="@+id/remove2Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Remover 2" />
-            <Button
-                android:id="@+id/attachButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Attach" />
-            <Button
-                android:id="@+id/detachButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Detach" />
-            <Button
-                android:id="@+id/replace1Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Remplazar por 1" />
-
-            <Button
-                android:id="@+id/replace2Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reemplazar por 2" />
-        </LinearLayout>
-    </HorizontalScrollView>
-    <FrameLayout
-        android:background="#DDD"
-        android:id="@+id/container"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerContacts"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/scroll"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
-```
-
-3. Crearemos dos ___Fragments___: El primero llevará el [Logo de Bedu]() y su _layout_ llamará ___fragment_bedu.xml___.
-
-```xml 
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/bedu" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-Su clase correspondiente será la siguiente:
+3.- Crear el layout para cada contacto de teléfono en la lista. Usaremos una imagen de perfil gris:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="16dp">
+
+    <ImageView
+        android:id="@+id/userImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/unknown"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.26" />
+
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Nombre bato"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/guideline4" />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:text="Ya fue"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:text="Ya fue"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/tvNombre" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+4.- Tendremos qué crear un Modelo de datos para nuestro arreglo, Por el momento desplegamos nombre, estado, teléfono y foto (es la misma siempre), por lo que nuestro Modelo queda así: 
 
 ```kotlin
-class BeduFragment : Fragment() {
+package org.bedu.recyclercontacts
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_bedu, container, false)
-        
-        return view
+data class Contact (
+    var name: String,
+    var status: String,
+    var phone: String,
+    var idImage: Int
+)
+```
+
+5.- Con esto, vamos a crear el adaptador de nuestro RecyclerView; aquí veremos la diferencia de estructura con un ListView.
+
+```kotlin
+package org.bedu.recyclercontacts
+
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
+
+//Declaración con constructor
+class RecyclerAdapter(
+    var context:Context,
+    var contacts: MutableList<Contact>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+
+    //Aquí atamos el ViewHolder
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = contacts.get(position)
+        holder.bind(item, context)
     }
 
-}
-```
 
-Recuerdas el [../Reto-01]? Ahí examinamos el ciclo de vida de un ___Fragment___, así que tomaremos la implementación de ___callbacks___ para analizar el ciclo de vida cuando hagamos una transacción.
-
-4. Para el segundo Fragment, repetimos el paso anterior, cambiando los nombres a ___fragment_beto.xml___ y a ___BetoFragment___ respectivamente. El nombre de la imagen del layout será ___beto.png___. Para los _Logs_, podemos poner un identificador en el texto para distinguirlos.
-
-5. Aunque google no lo recomienda, utilizaremos para esta ocasión _kotlinx synthetic_ En nuestro ___MainActivity___, para saltarnos la asignación de las _Views_. obtenemos el ___supportFragmentManager___ y lo guardamos en una variable.
-
-En el _listener_ del botón de agregar, crearemos una nueva _Transaction_, creamos una instancia de ___BeduFragment___, la agregamos al _container_ con el _tag_ "fragBedu" (que nos servirá para identificarlo) y aplicamos los cambios mediante el método ___commit___.
-
-```kotlin
-override fun onCreate(savedInstanceState: Bundle?) {
-    ...
-    
-    val manager = supportFragmentManager
-
-
-    //Agregaremos un nuevo Fragment
-    addButton.setOnClickListener {
-        val fragment = BeduFragment()
-        val transaction = manager.beginTransaction()
-        transaction.add(R.id.container, fragment, "fragBedu")
-        transaction.commit()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return ViewHolder(layoutInflater.inflate(R.layout.item_contact, parent, false))
     }
-}
-```
-Abajo de esta, creamos el _listener_ para remover un ___Fragment___, el _fragment_ será encontrado por el tag que asignamos anteriormente ("fragBedu").
 
-```kotlin
-removeButton.setOnClickListener {
-            val fragment = manager.findFragmentByTag("fragBedu") as BeduFragment
-            val transaction = manager.beginTransaction()
-            transaction.remove(fragment)
-            transaction.commit()
-        }
-```
+    override fun getItemCount(): Int {
+        return contacts.size
+    }
 
-Corremos el código e inmediatemente pulsamos el botón remover... Qué sucede?
+    //El ViewHolder ata los datos del RecyclerView a la Vista para desplegar la información
+    //También se encarga de gestionar los eventos de la View, como los clickListeners
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        //obteniendo las referencias a las Views
+        val nombre = view.findViewById(R.id.tvNombre) as TextView
+        val status = view.findViewById(R.id.tvStatus) as TextView
+        val phone = view.findViewById(R.id.tvPhone) as TextView
+        val image = view.findViewById(R.id.userImage) as ImageView
 
-<img src="images/1.png" width="80%">
+        //"atando" los datos a las Views
+        fun bind(contact: Contact, context: Context){
+            nombre.text = contact.name
+            status.text = contact.status
+            phone.text = contact.phone
+            image.setImageResource(contact.idImage)
 
-Como no se encontró ningún fragment con ese tag, el valor nos arroja nulo y al querer hacer un __cast__, nos arroja un error. Por lo tanto, verificaremos si se encontró dicho fragment
-
-```kotlin
-val fragmentTag = manager.findFragmentByTag("fragBedu")
-
-if(fragmentTag!=null){
-    val fragment = fragmentTag as BeduFragment
-    val transaction = manager.beginTransaction()
-    transaction.remove(fragment)
-    transaction.commit()
-} else{
-    Toast.makeText(this, "No hay ningún FragmentBedu agregado",Toast.LENGTH_SHORT).show()
-}
-```
-            
-Corremos nuevamente el código y hacemos los siguientes ejercicios. Discutir los resultados y analizar cómo se comporta el ciclo de vida para cada uno.
-
-- Remover sin que exista un ___Fragment___
-- Agregar un fragment y eliminarlo
-- Agregar tres fragments y eliminar dos
-
-6. Ahora vamos a mostrar y ocultar un _fragment_, para esto utilzaremos los métodos ___hide___ y ___show___. El código es idéntico al de remover, excepto el nombre del método, en los cuales utilizaremos
-
-```kotlin
-transaction.hide(fragment)
-```
-
-y
-
-```kotlin
-transaction.show(fragment)
-```
-Corremos nuevamente el código y hacemos los siguientes ejercicios. 
-
-- Esconder/mostrar sin que exista un ___Fragment___
-- Agregar un fragment, esconderlo y mostrarlo
-
-7. Ahora implementaremos ___attach___ y ___detach___. Para hacer una diferenciación, el método ___add___ agrega un _fragment_ que puede tener su propi _View_ Al estado del _activity_, mientras que ___attach___, adjunta nuevamente el _fragment_ a la UI. Mientras que ___remove___ elimina el _View_ del _fragment_ y el estado del _FragmentManager_, ___detach___ destruye únicamente el _View_.
-
-La implementación, nuevamente, se realiza de forma similar al _remove_.
-
-```kotlin
-transaction.attach(fragment)
-```
-
-```kotlin
-transaction.detach(fragment)
-```
-
-
-[`Anterior`](../Readme.md) | [`Siguiente`](../Reto-02)
-
-Corremos nuevamente el códido y hacemos los siguientes ejercicios. 
-
-- Attach/detach sin que exista un ___Fragment___
-- Agregar un fragment, Attach y Detach
-
-
-8. Ahora vamos a agregar la opción de agregar/eliminar un segundo _fragment_, es aquí donde ___BetoFragment___ entra en acción.El código es el mismo que para el primer _fragment_, pero adaptado para el segundo _fragment_.
-
-```kotlin
-add2Button.setOnClickListener {
-            val fragment = BetoFragment()
-            val transaction = manager.beginTransaction()
-            transaction.add(R.id.container, fragment, "fragBeto")
-            transaction.commit()
-        }
-
-        remove2Button.setOnClickListener {
-            val fragmentTag = manager.findFragmentByTag("fragBeto")
-
-            if(fragmentTag!=null){
-                val fragment = fragmentTag as BetoFragment
-                val transaction = manager.beginTransaction()
-                transaction.remove(fragment)
-                transaction.commit()
-            } else{
-                Toast.makeText(this, "No hay ningún FragmentBeto agregado",Toast.LENGTH_SHORT).show()
+            //Gestionando los eventos e interacciones con la vista
+            itemView.setOnClickListener{
+                Toast.makeText(context, "Llamando a ${contact.name}", Toast.LENGTH_SHORT).show()
             }
         }
-```
+    }
 
-Los ejercicios a hacer son los siguientes:
 
-- Agregar un FragmentBeto y removerlo
-- Agregar un FragmentBedu, agregar un FragmentBeto, eliminar el FragmentBeto y luego el FragmentBedu
-- Agregar un FragmentBedu, agregar un FragmentBeto, eliminar el FragmentBedu y luego el FragmentBeto (Remarcar la estructura LIFO).
-
-8. Por último, utilizaremos la función ___replace___, que reemplazará todo lo contenido en el contenedor por el fragment que le pasemos. 
-
-```kotlin
-replace1Button.setOnClickListener {
-    val beduFragment = BeduFragment()
-    val transaction = manager.beginTransaction()
-    transaction
-        .replace(R.id.container,beduFragment,"fragBedu")
-        .commit()
 }
 ```
 
-De la misma forma, podemos hacer el ___replace___ para el otro _fragment_.
+- La primera diferencia que observamos, es que nuestro RecyclerAdapter no ereda de un basicAdapter() como las listas de los otros dos ejemplos; sino de un RecyclerView.Adapter
+- Tiene una clase nueva llamada ViewHolder, que asigna los valores de los datos a las vistas correspondientes en el Item, sin crear diversas instancias de esta (reciclando así este recurso).
+- sobreescribe el callback onCreateViewHolder, que infla y devuelve la vista. Como no la personaliza, se podrían asignar diferentes vistas para diversos Items.
+- contiene onBindViewHolder, que personaliza el tipo de ViewHolder según su posición.
 
-Los ejercicios son los siguientes:
+5.- En el *MainActivity*, seteamos el adaptador como un lateinit para poder recuperar su valor en cualquier momento.
 
-- Agregar un _FragmentBedu_ y reemplazarlo por un _FragmentBeto_
-- Crear varios _FragmentBedu_ y _FragmentBeto_ y reemplazarlos por cualquiera de los fragments.
+```kotlin
+private lateinit var mAdapter : RecyclerAdapter
+```
 
-[`Anterior`](../Reto-02/Readme.md) | [`Siguiente`](../Proyecto/Readme.md)
+6.- Para generar datos dummy, declaramos una función con un arreglo de Contacts predeterminados.
+```kotlin
+//generamos datos dummy con este método
+    private fun getContacts(): MutableList<Contact>{
+        var contacts:MutableList<Contact> = ArrayList()
+
+        contacts.add(Contact("Pablo Perez", "disponible", "5535576823",R.drawable.unknown))
+        contacts.add(Contact("Juan Magaña", "on smash", "553552432",R.drawable.unknown))
+        contacts.add(Contact("Leticia Pereda", "disponible", "5553454363",R.drawable.unknown))
+        contacts.add(Contact("Manuel Lozano", "livin' la vida loca", "9613245432",R.drawable.unknown))
+        contacts.add(Contact("Ricardo Belmonte", "disponible", "6332448739",R.drawable.unknown))
+        contacts.add(Contact("Rosalina", "lookin' to the stars", "7546492750",R.drawable.unknown))
+        contacts.add(Contact("Thalía Fernandez", "no fear", "5587294655",R.drawable.unknown))
+        contacts.add(Contact("Sebastián Cárdenas", "no molestar", "4475655578",R.drawable.unknown))
+
+        return contacts
+    }
+```
+
+7.- Embebemos todo el código para configurar y lanzar nuestro RecyclerView en un método que llamaremos en *onCreate()*:
+
+```kotlin
+//configuramos lo necesario para desplegar el RecyclerView
+    private fun setUpRecyclerView(){
+        recyclerContacts.setHasFixedSize(true)
+        //nuestro layout va a ser de una sola columna
+        recyclerContacts.layoutManager = LinearLayoutManager(this)
+        //seteando el Adapter
+        mAdapter = RecyclerAdapter( this,getContacts())
+        //asignando el Adapter al RecyclerView
+        recyclerContacts.adapter = mAdapter
+    }
+```
+
+8.- Finalmente, ejecutamos dicho método en onCreate().
+
+La app debe quedar similar a esto:
+
+<img src="result.png" width="33%">
+
+
+
+[`Anterior`](../Reto-01/Readme.md) | [`Siguiente`](../Reto-02/Readme.md)
+
 
 
 

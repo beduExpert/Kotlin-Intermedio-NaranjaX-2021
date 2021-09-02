@@ -1,108 +1,102 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 05`](../Readme.md) > `Ejemplo 1`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 04`](../Readme.md) > `Ejemplo 1`
 
-## Ejemplo 1: Fragments
+## Ejemplo 1: ListView
 
 <div style="text-align: justify;">
 
 ### 1. Objetivos :dart:
 
-- Crear un Fragment dentro de un View.
+- Implementar a nivel básico un ListView, con elementos predefinidos.
 
 ### 2. Requisitos :clipboard:
 
-1. Android Studio Instalado en nuestra computadora.
-2. Seguir la instrucción específica para esta sesión.
+1. Haber leído el tema de patrón Adapter en el Prework.
+2.- Haber comprendido el tema de ListView enseñado durante la presentación de la sesión 1.
 
 ### 3. Desarrollo :computer:
 
-1. Abre __Android Studio__ y crea un nuevo proyecto con Activity Vacía (Empty Activity).
+1.- Abrir un proyecto con una Actividad vacía.
 
-2. En el directorio _layout_ crearemos un nuevo archivo _xml_ para nuestro ___Fragment___. Este layout representa la interfaz de nuestro Fragmento, que en este caso será una simple imagen contenida en un _ImageView_.
-
-```xml
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/bedu" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-```
-
-3. Dentro del _activity_main.xml_, incluiremos un _fragment_ que contendrá el _layout_ generado previamente.
-
-```xml 
-<fragment
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        class="com.example.fragments.ExampleFragment"
-        android:id="@+id/frgDetalle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-```
-
-4. Muy bien! Ahora toca asociar el view nuestro ___Fragment___ a su respectiva clase, por lo tanto creamos un nuevo archivo .kt y creamos nuestra clase que extenderá de la Superclase __Fragment__ .
-
-```kotlin
-class ExampleFragment : Fragment() {
- 
-}
-```
-
-Para asociar nuestro layout a la clase, utilizamos el método ___inflate___ dentro de la función ___onCreateView___ y en el primer argumento pasamos el ID de nuestro layout con ___R.layout.fragment_layout___.
-
-```kotlin
- override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_layout, container, false)
-    }
-```
-
-El resultado es la siguiente pantalla!
-
-<img src="images/1.png" width="50%">
-      
-      
-Una forma Automática de crear una clase _Fragment___ junto a su ___layout___ es yendo a nuestro directorio principal y creando ahí un ___Blank Fragment___. Este creará automáticamente nuestra clase con varios callbacks implementados, su _layout_ en el respectivo directorio, y el método ___onCreateView___ con el id del layout como parámetro.
-
-<img src="images/2.png" width="50%">
-
-El _layout_ se creará con la siguiente estructura:
+2.- En el Layout del *activity_main.xml*, agregar un ListView que se ajuste al tamaño del Parent (para mayor facilidad de manejor, reemplazar el ConstraintLayout predefinido por un LinearLayout o RelativeLayout). El ListView se debe ver de la siguiente forma:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".BlankFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<ListView
+        android:id="@+id/listView"
+        android:smoothScrollbar="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        />
 ```
 
-Podemos reemplazar los elementos para que concuerden con lo requerido (en este caso, basta reemplazar el _TextView_ por un _ImageView_).
+3.- Crear un arreglo con una lista de cualquier clasificación de tu preferencia. En este  ejemplo se optó por modelos de coches.
 
-[`Anterior`](../Readme.md) | [`Siguiente`](../Reto-01/Readme.md)
+```kotlin
+val modeloCoches = arrayOf(
+            "Vento",
+            "Jetta",
+            "Fit",
+            "Sonic",
+            "206",
+            "Tsuru",
+            "Versa",
+            "Windstar",
+            "Safira",
+            "Monsa",
+            "Lobo",
+            "HR-V",
+            "Gol",
+            "Bora",
+            "Rav4",
+            "Astra",
+            "Mustang",
+            "Corsa",
+            "Pointer",
+            "Aveo",
+            "Beetle",
+            "Mini cooper"
+        )
+```
+
+4.- En el método onCreate, inicializar el adaptador, por practicidad se opta por un ArrayAdapter (para tomar como modelo un simple array de strings).
+
+```kotlin
+ val itemsAdapter =
+            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, modeloCoches)
+```
+
+5.- Setear el adaptador en el listView por medio de el método setAdapter (mediante su *property access syntax*)
+
+
+```kotlin
+listView.adapter = itemsAdapter
+```
+
+6.- Agregar un listener al listView que reaccione al click de alguno de sus elementos (*onClickItemListener*):
+```kotlin
+listView.onItemClickListener =
+            OnItemClickListener { parent, view, position, id ->
+                //Poner código aquí
+            }
+```
+
+7.- Agregamos un Toast para visualizar el valor seleccionado, el listener nos provee con la posición del item en el array, por lo que podemos obtener el string seleccionado poniendo el index en el array. 
+
+```kotlin
+Toast.makeText(
+                    applicationContext,
+                    "seleccionaste el coche ${modeloCoches[position]}", Toast.LENGTH_SHORT
+                )
+                    .show()
+```
+
+la pantalla debe tener esta forma: 
+
+<img src="01.png" width="30%">
+
+
+
+
+[`Anterior`](../Readme.md) | [`Siguiente`](../Ejemplo-01a/Readme.md)
 
 
 

@@ -1,51 +1,41 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 05`](../Readme.md) > `Proyecto`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 04`](../Readme.md) > `Proyecto`
 
-## Proyecto: Fragments
+## Proyecto
 
 <div style="text-align: justify;">
 
 ### 1. Objetivos :dart:
 
-- Modularizar el proyecto mediante ___Fragments___.
-- Manejar un flujo entre _fragments_.
+- Aplicar el conocimiento de Listas a nuestro proyecto.
 
 ### 2. Requisitos :clipboard:
 
 1. Android Studio Instalado en nuestra computadora.
-
+2. Seguir la instrucción específica para esta sesión.
 
 ### 3. Desarrollo :computer:
 
-En este reto final, vamos a implementar _fragments_ para lograr una app flexible para diversos dispositivos, o crear un flujo.
+Las listas son elementos recurrentes en las aplicaciones. En nuestra aplicación de galeria, tenemos un grid de fotos que al pulsar sobre un elemento, se despliega la imagen para abarcar toda la pantalla. En una app bancaria, el historial de transacciones se muestran en lista. Para una app de cine, las pelí
+culas están listadas de forma vertical. 
 
-Por simplicidad podemos escoger un login con nombre de usuario/correo/teléfono y una contraseña.
+<img src="images/1.png" width="35%">
 
-### Lista-detalle
+Ejemplo de la app gallery go, donde tenemos un listado de nuestras imágenes y videos. 
 
-Para este apartado, podemos tomar como base el ejercicio realizado en el [Ejemplo 2](../Ejemplo-02) para una lista-detalle, pudiéndolo modificar a un inbox o a otro tipo de lista, dependiendo del proyecto que hayamos elegido.
+En general, la implementación de una lista en el proyeto es esencial y prácticamente para cualquier ejemplo de aplicación tendremos una forma de utilizarla.
 
-<img src="images/1.png" width="40%">
-
-### Flujo
-
-Podemos crear un flujo en la aplicación similar a los de los tutoriales guiados cuando abres por primera vez una app
-
-<img src="images/2.png" width="40%">
-
-O una serie de pasos para completar una tarea.
-
-<img src="images/3.jpeg" width="40%">
 
 ### Lineamientos
 
-1. Se debe implementar al menos dos _fragments_ en el proyecto.
-2. Cualquier forma de implementación de _fragments_ es válido.
-3. El uso de los _fragments_ debe ser adecuado (no utilizarlos en lugares donde no se requieran).
+1. El proyecto debe utilizar al menos un _RecyclerView_.
+2. Al pulsar sobre cualquier elemento del _RecyclerView_, debemos navegar a una nueva pantalla para los detalles del elemento (las acciones a realizar en ella son libres).
+3. Cada elemento debe tener en su _layout_ al menos dos textos y una imagen.
+4. La distribución del _layout_ preferentemente no debe ser lineal.
+
+
+[`Anterior`](../Reto-03/Readme.md) | [`Siguiente`](../Postwork/Readme.md)
 
 
 
-
-
-[`Anterior`](../Ejemplo-03/Readme.md) | [`Siguiente`](../Postwork/Readme.md)
 
 </div>

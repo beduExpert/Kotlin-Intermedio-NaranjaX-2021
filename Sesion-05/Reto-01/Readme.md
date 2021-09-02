@@ -1,161 +1,116 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 05`](../Readme.md) > `Reto 1`
-	
-## Reto 1 
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 04`](../Readme.md) > `Reto 1`
+
+## Reto 1: Spinners
 
 <div style="text-align: justify;">
 
 ### 1. Objetivos :dart:
 
-- Analizar el ciclo de vida de un _Fragment_ y su comportamiento al realizar diversas acciones.
+- Continuar el proceso de aprendizaje de los spinners, desarrollando vistas y acciones personalizadas similares a los vistos en el [EJEMPLO 01-A](../Ejemplo-01a)
 
 ### 2. Requisitos :clipboard:
 
-1. Android Studio instalado
-2. Al menos un Emulador android configurado
+1. Android Studio Instalado en nuestra computadora.
+2. Seguir la instrucción específica para esta sesión.
 
 ### 3. Desarrollo :computer:
 
-Apoyándonos del diagrama que representa el ciclo de vida de un ___Fragment___, realizaremos las tareas enumeradas a continuación.
-
- <img src="../images/fragment-cycle.png">
- 
- 
- También nos apoyaremos de esta tabla que relaciona el ciclo de vida de nuestro fragment con el ciclo del Activity al que lo adjuntamos.
- 
- 
-Estado del _Activity_ |	Callbacks del _Fragment_ llamados |	Ciclo de vida del _Fragment_
---- | --- | ---
-Created	| onAttach(), onCreate(), onCreateView(), onActivityCreated() | Fragment agregado y layout inflado.
-Started |	onStart() | Fragment activo y visible.
-Resumed |	onResume() | Fragment activo y listo para interactuar con el usuario.
-Paused |	onPause() | Fragment pausado.
-Stopped	| onStop() | Fragment parado e invisible.
-Destroyed |	onDestroyView(), onDestroy(), onDetach() | El Fragmento es destruído.
+1.- Tomar el [Ejemplo 02](../Ejemplo-02) como base del siguiente ejercicio.
 
 
-1. Utilizando el ejemplo anterior, utilizaremos todos los callbacks para imprimir un texto cuando este se halla mandado a llamar. Observar como se imprimen los logs en el _logcat_ con diversas acciones (abrir la app, cerrar la app, voltear el teléfono, enviar a segundo plano, etc.).
+Se requiere crear una pantalla con selección de país, pero que al seleccionarse, cambie el idioma de los textos en pantalla.
+
+La pantalla final tiene que quedar así
+
+<img src="Images/01.png" width="33%">
+
+y al dar click al botón continuar, salga un diálgo con el saludo en su idioma: 
+
+<img src="Images/03.png" width="33%">
 
 
-<details><summary>Solución</summary>
-<p>
+- Los recursos se encuentran en la carpeta [Resources](Resources/)
+- La construcción del adapter, del modelo y la lógica en general es casi idéntica a la del [Reto 01](../Reto-01), así que se puede tomar de guía
+
+
+Se facilitan estas dos funciones, que sirven para generar los datos del país y para mostrar un diálogo de alerta.
 
 ```kotlin
+private fun getCountries(): ArrayList<CountryModel>{
+        val countryModels = arrayListOf(
+            CountryModel("Mexico",R.drawable.mexico, "Continuar", "Muchas gracias","Selecciona tu país"),
+            CountryModel("Brasil",R.drawable.brazil, "Continuar", "Muito obrigado"," Selecione seu país"),
+            CountryModel("Francia",R.drawable.france, "Continuez", "Merci beaucoup", "Sélectionnez votre pays"),
+            CountryModel("Alemania",R.drawable.germany, "FortFühren", "Danke sehr", "Wählen Sie Ihr Land aus"),
+            CountryModel("Italia",R.drawable.italy, "Continuare", "Molto grazie", "Seleziona il tuo paese"),
+            CountryModel("United states",R.drawable.united_states, "Next", "Thank you", "Select your country")
+        )
 
- override fun onAttach(context: Context) {
-        Log.d("Fragment", "onAttach llamado")
-        super.onAttach(context)
+        return countryModels
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d("Fragment", "onCreate llamado")
-        super.onCreate(savedInstanceState)
-    }
+    private fun showDialog(title:String,message:String){
+        val builder = AlertDialog.Builder(this)
+            .setTitle(title)
+            .setMessage(message)
+            .setPositiveButton("OK"){_, _->  }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        val root = inflater.inflate(R.layout.fragment_layout, container, false)
-        Log.d("Fragment", "onCreateView llamado")
-        return root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        Log.d("Fragment", "onActivityCreated llamado")
-        super.onActivityCreated(savedInstanceState)
-    }
-
-    override fun onStart() {
-        Log.d("Fragment", "onStart llamado")
-        super.onStart()
-    }
-
-    override fun onResume() {
-        Log.d("Fragment", "onResume llamado")
-        super.onResume()
-    }
-
-    override fun onPause() {
-        Log.d("Fragment", "onPause llamado")
-        super.onPause()
-    }
-
-    override fun onStop() {
-        Log.d("Fragment", "onStop llamado")
-        super.onStop()
-    }
-
-    override fun onDestroyView() {
-        Log.d("Fragment", "onDestroyView llamado")
-        super.onDestroyView()
-    }
-
-    override fun onDestroy() {
-        Log.d("Fragment", "onDestroy llamado")
-        super.onDestroy()
-    }
-
-    override fun onDetach() {
-        Log.d("Fragment", "onDetach llamado")
-        super.onDetach()
+        val alertDialog = builder.create()
+            alertDialog.show()
     }
 ```
 
-</p>
-</details>
-<br/>
-
-2. Agregar un botón que permita navegar a una nueva _Activity_ que crearemos y cuyo diseño de _layout_ sea abierto. Analizar cómo se comporta el ciclo de vida al navegar a dicha _Activity_ y al regresar de ella.
-
-<details><summary>Solución</summary>
-<p>
-
-Dentro del _layout_ del _Fragment_ crearemos un botón, el código xml queda similar al siguiente:
+también el xml de MainActivity
 
 ```xml
-<Button
-        android:id="@+id/button"
-        android:text="Siguiente"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:background="#EDEDED"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:textSize="24sp"
+        android:text="Selecciona tu País"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginBottom="48dp"
+        android:text="Continuar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 
-El callback ___onCreateView___ debe quedar parecido a lo siguiente
-	
-```kotlin
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        val root = inflater.inflate(R.layout.fragment_layout, container, false)
 
-        Log.d("Fragment", "onCreateView llamado")
-        val btn = root.findViewById<Button>(R.id.button)
-        btn.setOnClickListener {
-            val intent = Intent(activity, OtherActivity::class.java)
-            startActivity(intent)
-        }
-
-
-        return root
-    }
-```
-
-mediante la variable ___root___ podemos encontrar nuestra representación del botón creado y poder asignarle un _listener_ al darle click. Ahí, podemos declarar un ___Intent___ que nos lleve al nuevo ___Activity___.
-
-</p>
-</details>
-<br/>
-
-[`Anterior`](../Ejemplo-01/Readme.md) | [`Siguiente`](../Ejemplo-02/Readme.md)
+[`Anterior`](../Ejemplo-02/Readme.md) | [`Siguiente`](../Ejemplo-03/Readme.md)
 
 
 
