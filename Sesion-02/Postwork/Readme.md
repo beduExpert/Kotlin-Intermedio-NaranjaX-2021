@@ -1,4 +1,4 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 02`](../Readme.md) > `Postwork`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 03`](../Readme.md) > `Postwork`
 
 ## Postwork
 
@@ -6,8 +6,7 @@
 
 ### 1. Objetivos :dart:
 
-- Programar la idea básica de nuestra aplicación.
-- Implementar nuevas _Views_ al proyecto.
+- Orientarse en la implementación de nuevas _Activities_ y sus _layouts_.
 
 ### 2. Requisitos :clipboard:
 
@@ -16,90 +15,18 @@
 
 ### 3. Desarrollo :computer:
 
+#### Definir el caso de uso para nuestro primer flujo.
+
+A continuación veremos ciertas ideas que nos ayudarán a aterrizar nuestro proyecto.
+
+El proyecto se va a desarrollar por etapas, y como no podemos dimensionar en su totalidad la implementación de los temas por venir, es conveniente hacer una pequeña planeación.
+
+Se considera recomendable que nuestro flujo tenga al menos seis pantallas, que tenga un objetivo principal y otras pantallas de apoyo (perfil, configuración, etc.). Por lo anterior, sería muy complejo desarrollar el flujo de Activities en esta sesión, por lo que se puede empezar por definir el flujo de únicamente dos pantallas o incluso 3. 
+
+Se recalca que es conveniente desarrollar el flujo más simple en la aplicación, puesto a que las complejidades de otras pantallas con distintas funciones pueden ser cubiertas en siguientes temas. Un ejemplo de lo anterior es el flujo entre una pantalla de _inicio de sesión_ y otra que lleve a la información de perfil (puesto que los datos son únicamente informativos) y el inicio de sesión únicamente valida que las credenciales sean correctas. Un ejemplo contrario sería desarrollar una pantalla que arroje los resultados de la busqueda de un producto, puesto que el tema de listas aún no está cubierto ni el de filtros.
 
 
-Puede que sea deseable o necesario utilizar algunos _Views_ no vistos durante la sesión, algunos de estos ejemplos abarcan los siguientes:
 
-
-#### Switch
-
-<img src="images/switch.png" width="40%">
-
-Este elemento es capaz de poder controlar dos estados: ___On/Off___. Dichos estados se representan por medio de un booleano, que indicará su estado actual. Para poder implementar un listener que escuche el cambio de un estado a otro, se implementaría de la siguiente forma:
-
-```kotlin
-switch.setOnCheckedChangeListener { _, isChecked ->
-  Toast.makeText(this,isChecked.toString(),Toast.LENGTH_SHORT).show() //Mostrar el estado actual en un Toast
-}
-```
-
-y para determinar programáticamente su estado con ___property syntax___, utilizamos:
-
-```kotlin
-switch.isChecked = true // para encender el switch
-```
-
-#### Checkbox
-
-<img src="images/checkbox.png" width="40%">
-
-Comparte funcionalidades con un ___Switch___, incluyendo los métodos anteriormente descritos.
-
-
-#### Slider
-
-Este elemento de material design, puede ser escuchado al cambiar su valor por medio de lo siguiente:
-
-```kotlin
-slider.addOnChangeListener { slider, value, fromUser ->
-    // Leemos el cambio del slider
-}
-```
-
-También podemos reaccionar a cuando se empieza a utilizar o al terminar de utilizarlo:
-
-```kotlin
-slider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
-    override fun onStartTrackingTouch(slider: Slider) {
-        // Reacción al iniciar el touch event
-    }
-
-    override fun onStopTrackingTouch(slider: Slider) {
-        // Reacción al finalizar el touch event
-    }
-})
-```
-
-y sus valores mínimo, máximo y el paso se pueden definir desde el layout
-
-```xml
-<com.google.android.material.slider.Slider
-    ...
-    android:valueFrom="0.0"
-    android:valueTo="100.0"
-    android:stepSize="10.0"  />
-``` 
-
-Aunque también pueden ser definidos programáticamente.
-
-
-#### Snackbar
-
-<img src="images/snackbar.png" width="50%">
-
-Se mandan a llamar de forma similar a un ___Toast___ y son utilizados para mostrar información de procesos, con posibilidades de ejecutar una acción. Las acciones se declaran antes de llamar al método ___show()___ mediante el método ___setAction()___ y también pueden definirse ahí los colores del fondo y del texto, entre otros valores.
-
-```kotlin
-Snackbar.make(contextView, "Text label", Snackbar.LENGTH_LONG)
-    .setAction("Action") {
-        // Respuesta al pulsar la acción 1
-    }
-    .setBackgroundTint(getColor(R.color.backgroundTint))
-    .setActionTextColor(getColor(R.color.actionTextColor))
-    .show()
-```
-
-
-[`Anterior`](../Proyecto/Readme.md) | [`Siguiente`](../../Sesion-03/Readme.md)
+[`Anterior`](../Proyecto/Readme.md) | [`Siguiente`](../../Sesion-04)
 
 </div>

@@ -1,5 +1,5 @@
 
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 03`](../Readme.md) > `Ejemplo 5`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 02`](../Readme.md) > `Ejemplo 5`
 
 ## Ejemplo 5: Comunicación entre Activities
 
@@ -235,5 +235,4 @@ Obtendremos lo siguiente:
 
 
 </div>
-
 

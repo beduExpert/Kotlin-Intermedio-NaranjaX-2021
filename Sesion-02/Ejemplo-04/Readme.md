@@ -1,5 +1,5 @@
 
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 03`](../Readme.md) > `Ejemplo 4`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 02`](../Readme.md) > `Ejemplo 4`
 
 ## Ejemplo 4: Ciclo de vida de un Activity
 
@@ -97,5 +97,4 @@ override fun onStart() {
 
 
 </div>
-
 

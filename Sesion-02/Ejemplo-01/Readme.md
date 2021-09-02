@@ -1,6 +1,6 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 03`](../Readme.md) > `Ejemplo 1`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 02`](../Readme.md) > `Ejemplo 1`
 
-## Ejemplo 1: Layouts: RelativeLayout
+## Ejemplo 2: Layouts: RelativeLayout
 
 <div style="text-align: justify;">
 
@@ -114,7 +114,7 @@ El ejemplo de abajo ya tiene implementado el RelativeLayout y está ordenado de 
         android:background="#FFFF00" />
 </RelativeLayout>
 ```
-   
+
 4. Ahora ordenamos según esta imagen:
 
    <img src="images/1.png" width="40%">

@@ -1,74 +1,75 @@
 [`Kotlin Intermedio`](../../Readme.md) > [`Sesión 02`](../Readme.md) > `Proyecto`
 
-## Proyecto: Agregando Views
+## Proyecto: Activities y Layouts
 
 <div style="text-align: justify;">
 
 ### 1. Objetivos :dart:
 
-- Implementar Views al proyecto.
-- Crear un formulario.
+- Crear un flujo entre Activities.
+- Diseñar los layouts de las _Activities_ con ___ConstraintLayout___.
 
 ### 2. Requisitos :clipboard:
 
 1. Android Studio Instalado en nuestra computadora.
 
-
 ### 3. Desarrollo :computer:
 
-En este reto final, vamos a implementar un formulario de registro o de login en nuestra app, según la preferencia.
-
-Por simplicidad podemos escoger un login con nombre de usuario/correo/teléfono y una contraseña.
-
-### Login
-
-<img src="images/0.png" width="60%">
-
-Si lo que deseamos es implementar un login, los __Views__ básicos a implementar son:
-
-- Un _ImageView_ para el logo de la app.
-- Dos _EditText_: el primero para usuario/correo/teléfono, el segundo para la contraseña. Ambos con íconos de preferencia para darle personalidad.
-- Un botón de Iniciar sesión
-- Una etiqueta para "olvidé contraseña"
-
-### Tips
-
-Declarar el password con el atributo ___inputType___ como ___textPassword___ protege el texto que se va escribiendo como puntos, para que no sean visibles.
-
-Para la validación del formato de un email, existe un utils en android que hace la validación automática (también valida números telefónicos o sitios web). Dichas herramientas en forma de clase se llama Patterns, y la propiedad que utilizaremos es EMAIL_ADDRESS, por lo que una función de validación podría quedar de la siguiente forma:
-
-```kotlin
-fun isEmailValid(email: String): Boolean { 
-    return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
-}
-```
-podríamos crear otro validador para Password utilizando directamente una función if y englobándola en otra función.
-
-Para mostrar un error en un EditText podemos setear un error mediante:
-
-```kotlin
-editText.error = "Contraseña incorrecta"
-```
-
-cuando la validación sea exitosa, hay qué borrar el mensaje, por lo que agregar una extensión a EditText para hacer esto sería útil:
-
-```kotlin
-fun EditText.clearError() {
-    error = null
-}
-```
-
-### Lineamientos
-
-1. La pantalla debe contener al menos un _ImageView_, dos _EditText_, dos _TextView_ y un _Button_.
-2. El color de fondo debe ser asignado al fondo de la pantalla, asignar colores al texto.
-3. Todo tipo de recursos debe ir en su respectivo archivo (strings en _strings.xml_, recursos gráficos en la carpeta _drawable_, etc).
-4. Al menos un View debe implementar un callback con alguna funcionalidad.
+En este reto final, vamos a crear una pantalla de registro que esté conectada con el inicio de sesión.
 
 
 
+#### Lineamientos
 
 
-[`Anterior`](../Ejemplo-03/Readme.md) | [`Siguiente`](../Postwork/Readme.md)
+
+##### Interfaz
+
+* _Viewgroup_ de la clase ___ConstraintLayout___.
+
+- Título "Registrarse" como cabecera
+
+- Botón de inicio de sesión en google (Este no implementará ninguna funcionalidad) 
+
+- Input de nombre ( con input type de nombre de persona)
+
+- Input de e-mail ( con input type de email)
+
+- Input de número telefónico (con input type de phone)
+
+- Input Contraseña (con input type de password)
+
+- Botón de registrarse.
+
+  
+
+  
+
+##### Lógica
+
+- Al hacer click sobre el botón login, Navegar a un menú principal ()
+- Al hacer click sobre registro, enviar al activity de register.
+- Al registrar todos los datos satisfactoriamente, regresar al menú de inicio
+
+
+
+La interfaz debe quedar de la siguiente forma:
+
+
+
+<img src="images/register.png" width="70%">
+
+
+
+#### Recursos
+
+* Para aprender a implementar de login con google, consultar[Este enlace](https://developers.google.com/identity/sign-in/android/sign-in) lleva a la documentación del View. 
+* El color del botón de google cambia a azul al utilizar este atributo: ```app:colorScheme="dark"```
+* Colores:
+
+  * ![](https://via.placeholder.com/15/f03c15/000000?text=+)  Color del botón y el título: ***f03c15***
+  * ![](https://via.placeholder.com/15/172126/000000?text=+) Color del background: ***#172126***
+
+[`Anterior`](../Ejemplo-05/Readme.md) | [`Siguiente`](../Readme.md)
 
 </div>
