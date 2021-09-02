@@ -1,6 +1,6 @@
 [`Kotlin-Intermedio`](../Readme.md) > `Sesión 1`
 
-## Sesión 1: Introducción a Android
+## Sesión 1: Proyecto Android y Views
 
 <img src="../images/android-kotlin.png" align="right" height="120" hspace="10">
 <div style="text-align: justify;">
@@ -9,12 +9,14 @@
 
 - Reconocer el IDE Android Studio con el que desarrollan aplicaciones móviles.
 - Conocer la estructura de un proyecto android y todos los archivos generados por el IDE
+- Modificar el proyecto por defecto
+- utilizar los controles esenciales para generar interfaces básicas.
 
 ### 2. Contenido :blue_book:
 
 ---
 
-<img src="images/tools.png" align="right" height="90"> 
+<img src="images/tools.png" align="right" height="90">
 
 #### <ins>Setup inicial</ins>
 
@@ -55,17 +57,60 @@ Basta de emulaciones, utilizaremos un dispositivo móvil físico para instalar n
 
 ---
 
-### 3. Proyecto :hammer:
+
+
+### Introducción a Views
+
+Un ___View___ es una clase que representa la base de todos los componentes para la interfaz gráfica y su representación gráfica está delimitada por un rectángulo. La descripción gráfica de un View así como su posición en la pantalla está determinado por un archivo layout en lenguaje XML, y se encuentran distribuidos jerárquicamente en un árbol de Vistas. Un tipo especial de View es el ___ViewGroup___, que es un contenedor de Views y otros ViewGroups con un formato de orden específico. 
+
+<img src="images/view_tree.png" align="right">
+
+
+
+<img src="/Users/dancu/Documents/bedu/Kotlin-Intermedio-Naranja-2021/Sesion-02/images/button.png" align="right" height="90"> 
+
+#### <ins>Botones y textos</ins>
+
+Se crearán Vistas desde cero mediante código y las utilizaremos para detonar eventos sencillos como modificar un texto.
+
+- [**`EJEMPLO 5`**](Ejemplo-05/Readme.md)
+
+---
+
+<img src="/Users/dancu/Documents/bedu/Kotlin-Intermedio-Naranja-2021/Sesion-02/images/text_input.png" align="right" height="90"> 
+
+#### <ins>Inputs e imágenes</ins>
+
+Ampliaremos el dominio a ImageViews para la visualización de imágenes y EditTexts para ingresar un texto desde el teclado del móvil, y explorando los eventos que este detona. 
+
+- [**`EJEMPLO 6`**](Ejemplo-02/Readme.md)
+- [**`RETO 2`**](Reto-02/Readme.md)
+
+---
+
+<img src="/Users/dancu/Documents/bedu/Kotlin-Intermedio-Naranja-2021/Sesion-02/images/url_image.png" align="right" height="90"> 
+
+
+
+
+
+### 3. Proyecto (Postwork) :hammer:
 
 Aplica los lineamientos que vienen en esta guía para definir y comenzar el desarrollo de tu proyecto.
 
 - [**`PROYECTO SESIÓN 1`**](Proyecto/Readme.md)
 
-### 4. Postwork :memo:
 
-Esta es una guía anexa de consejos para una mejor planeación de tu proyecto para este módulo.
 
-- [**`POSTWORK SESIÓN 1`**](Postwork/Readme.md)
+### 4. Temas adicionales 📖
+
+#### <ins>Imágenes mediante URL</ins>
+
+Mostrar imágenes en un ImageView por medio de URLS, utilizando la librería coil disponible en _mavenCentral()_. 
+
+- [**`EJEMPLO 7`**](Ejemplo-07/Readme.md)
+
+
 
 <br/>
 

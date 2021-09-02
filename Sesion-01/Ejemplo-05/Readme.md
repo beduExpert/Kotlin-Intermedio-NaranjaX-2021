@@ -1,6 +1,6 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 02`](../Readme.md) > `Ejemplo 1`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 01`](../Readme.md) > `Ejemplo 5`
 
-## Ejemplo 1: Views, Button
+## Ejemplo 5: Views, Button
 
 <div style="text-align: justify;">
 
@@ -58,15 +58,15 @@
 ```
 
    y agregamos un nuevo atributo ___text___ al _TextView_ para insertarle un texto. Adicionalmente, haremos el texto en negritas y definiremos el tamaño de la fuente:
-   
+
  ```xml
 android:text="@string/hello_text"
 android:textStyle="bold"
 android:textSize="14sp"
-```
+ ```
    en textSize, tenemos el sufijo "sp" que significa scale-independent pixels.
    Deberíamos poder visualizar el texto correctamente!
-   
+
    <img src="images/4.png" width="40%">
 
 
@@ -88,7 +88,7 @@ android:textSize="14sp"
 ```
 
    Y el color rosa mexicano a _colors.xml_:
-   
+
 ```xml
 <color name="mexicanPink">#E4007C</color>
 ```
@@ -143,6 +143,6 @@ Nuestra aplicación debe verse de la siguiente forma:
 
 
 
-[`Anterior`](../Readme.md) | [`Siguiente`](../Reto-01/Readme.md)
+[`Anterior`](../Ejemplo-05/Readme.md) | [`Siguiente`](../Ejemplo-06/Readme.md)
 
 </div>

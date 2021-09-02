@@ -52,7 +52,6 @@ Algunos teléfonos piden autorización para la instalación segura, como este Xi
 Listo! tenemos ahora nuestra aplicación corriendo en el dispositivo!
 ![imagen](images/04.jpeg)
 
-
-[`Anterior`](../Reto-01/Readme.md) | [`Siguiente`](../Proyecto/Readme.md)
+[`Anterior`](../Reto-01/Readme.md) | [`Siguiente`](../Ejemplo-05/Readme.md)
 
 </div>

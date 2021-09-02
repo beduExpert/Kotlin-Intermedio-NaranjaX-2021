@@ -23,11 +23,8 @@ Para esta sesión, modificaremos el layout inicial de un proyecto creado, de mod
 </LinearLayout>
 ```
 
-### Introducción
 
-Un ___View___ es una clase que representa la base de todos los componentes para la interfaz gráfica y su representación gráfica está delimitada por un rectángulo. La descripción gráfica de un View así como su posición en la pantalla está determinado por un archivo layout en lenguaje XML, y se encuentran distribuidos jerárquicamente en un árbol de Vistas. Un tipo especial de View es el ___ViewGroup___, que es un contenedor de Views y otros ViewGroups con un formato de orden específico. 
 
-<img src="images/view_tree.png" align="right">
 <h5>Ejemplo de árbol de Views</h5>
 
 ### 1. Objetivos :dart: 
@@ -36,43 +33,9 @@ Un ___View___ es una clase que representa la base de todos los componentes para 
 
 <img src="../images/android-kotlin.png" align="right" height="120" hspace="10">
 
-- Modificar el proyecto por defecto
-- utilizar los controles esenciales para generar interfaces básicas.
-- Utilizar herramientas básicas para debuggeo
+- 
 
 ### 2. Contenido :blue_book:
-
----
-
-<img src="images/button.png" align="right" height="90"> 
-
-#### <ins>Botones y textos</ins>
-
-Se crearán Vistas desde cero mediante código y las utilizaremos para detonar eventos sencillos como modificar un texto.
-
-- [**`EJEMPLO 1`**](Ejemplo-01/Readme.md)
-- [**`RETO 1`**](Reto-01/Readme.md)
-
----
-
-<img src="images/text_input.png" align="right" height="90"> 
-
-#### <ins>Inputs e imágenes</ins>
-
-Ampliaremos el dominio a ImageViews para la visualización de imágenes y EditTexts para ingresar un texto desde el teclado del móvil, y explorando los eventos que este detona. 
-
-- [**`EJEMPLO 2`**](Ejemplo-02/Readme.md)
-- [**`RETO 2`**](Reto-02/Readme.md)
-
----
-
-<img src="images/url_image.png" align="right" height="90"> 
-
-#### <ins>Imágenes mediante URL</ins>
-
-Mostrar imágenes en un ImageView por medio de URLS, utilizando la librería coil disponible en _mavenCentral()_. 
-
-- [**`EJEMPLO 3`**](Ejemplo-03/Readme.md)
 
 ---
 

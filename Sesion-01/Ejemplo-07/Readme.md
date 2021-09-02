@@ -1,6 +1,6 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 02`](../Readme.md) > `Ejemplo 3`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 01`](../Readme.md) > `Ejemplo 7`
 
-## Ejemplo 3: Imágenes mediante URL
+## Ejemplo 7: Imágenes mediante URL
 
 <div style="text-align: justify;">
 
@@ -122,6 +122,6 @@ Corremos el código y comprobamos!
 
 
 
-[`Anterior`](../Reto-02/Readme.md) | [`Siguiente`](../Proyecto/Readme.md)
+ [`Siguiente`](../Readme.md)
 
 </div>

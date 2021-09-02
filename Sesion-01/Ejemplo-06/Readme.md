@@ -1,4 +1,4 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 02`](../Readme.md) > `Ejemplo 1`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 02`](../Readme.md) > `Ejemplo 6`
 
 ## Ejemplo 2: Inputs e imágenes
 
@@ -147,7 +147,7 @@ también esto se puede hacer de forma programática.
 ```
 
    relacionamos las variables con los id's del layout:
-   
+
 ```kotlin
     textView = findViewById(R.id.textView)
     editText = findViewById(R.id.editText)
@@ -155,7 +155,7 @@ también esto se puede hacer de forma programática.
 ```
 
    Y agregamos el _listener_ para los eventos de cuando el texto cambia:
-   
+
 ```kotlin
 editText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
@@ -203,6 +203,6 @@ Corroboramos el funcionamiento:
 
 
 
-[`Anterior`](../Reto-01/Readme.md) | [`Siguiente`](../Reto-02/Readme.md)
+[`Anterior`](../Ejemplo-05/Readme.md) | [`Siguiente`](../Reto-02/Readme.md)
 
 </div>
