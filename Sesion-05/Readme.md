@@ -1,7 +1,7 @@
-[`Kotlin-Intermedio`](../Readme.md) > `Sesión 4`
+[`Kotlin-Intermedio`](../Readme.md) > `Sesión 5`
 
 
-## Sesión 4: Listas
+## Sesión 5: Listas
 
 <div style="text-align: justify;">
 
@@ -61,19 +61,11 @@ Esta clase es una mejora de los _ListAdapters_, reciclando _Views_ y métodos pa
 ---
 
 
-### 3. Proyecto :hammer:
+### 3. Proyecto (Postwork) :hammer:
 
-Con los temas anteriores, construye una pantalla de items ajustado al concepto de tu proyecto.
+Con los temas anteriores, implementa una lista de productos en la pestaña de productos.
 
-- [**`PROYECTO SESIÓN 4`**](Proyecto/Readme.md)
-
-### 4. Postwork :memo:
-
-Con lo aprendido en esta sesión, continúa con la implementación de Lists en tu proyecto.
-
-- [**`POSTWORK SESIÓN 4`**](Postwork/Readme.md)
-
-<br/>
+- [**`PROYECTO SESIÓN 5`**](Proyecto/Readme.md)
 
 [`Anterior`](../Sesion-03/Readme.md) | [`Siguiente`](../Sesion-05/Readme.md)      
 

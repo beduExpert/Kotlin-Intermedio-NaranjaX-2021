@@ -1,4 +1,4 @@
- [`Kotlin Intermedio`](../../Readme.md) > [`Sesión 04`](../Readme.md) > `Ejemplo 1-A`
+ [`Kotlin Intermedio`](../../Readme.md) > [`Sesión 05`](../Readme.md) > `Ejemplo 1-A`
 
 ## Ejemplo 1-A: ListView con Custom Adapter
 
@@ -157,7 +157,7 @@ Las imágenes dentro de cada Item de la lista están en la siguiente [Ruta](reso
 3.- En el [Ejemplo 1](../Ejemplo-01) usábamos un ArrayAdapter con un layout predefinido y con datos simples (un arreglo de Strings)
 
 > val itemsAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, modeloCoches)
-	
+
 Para este caso, vamos a crear nuestro propio Adaptador, donde el layout sea el anteriormente descrito, y los datos sean un arreglo que contenga instancias de nuestro modelo con la información de los videojuegos ganadores. 
 
 ```kotlin

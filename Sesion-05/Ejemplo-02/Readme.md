@@ -1,4 +1,4 @@
-[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 04`](../Readme.md) > `Ejemplo 2`
+[`Kotlin Intermedio`](../../Readme.md) > [`Sesión 05`](../Readme.md) > `Ejemplo 2`
 
 ## Ejemplo 2: Spinners
 
@@ -58,10 +58,10 @@
 
 ```kotlin
  var language = arrayOf("Inglés", "Español", "Chino", "Ruso", "Coreano", "Alemán", "Francés", "Holandés")
- ```
- 
+```
+
  4.- Debemos setear el listener del spinner, para poder mostrar un mensaje cuando el usuario halla seleccionado un idioma.
- 
+
  ```kotlin
  spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
