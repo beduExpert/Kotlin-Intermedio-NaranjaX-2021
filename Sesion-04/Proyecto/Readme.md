@@ -31,7 +31,7 @@ En esta parte del proyecto, crearemos una navegación en nuestro proyecto utilza
 
 ### Interfaz
 
-La interfaz lo describiremos mediante dos flujos que describen la navegación.
+La interfaz la describiremos mediante dos flujos que describen la navegación.
 
 
 
@@ -51,13 +51,13 @@ En este flujo, navegaremos a la pantalla de registro cuando pulsemos sobre el li
 
 
 
-En este flujo, el boton de inicio de sesión nos llevará a la pantalla principal, la cual desplegará una barra de navegación (___BottomNavigationView___). Cada pestaña nos llevará a un Fragment en específico que contendrá un texto en particular, que en otras sesiones reemplazaremos por contenido adecuado.
+En este flujo, el botón de inicio de sesión nos llevará a la pantalla principal, la cual desplegará una barra de navegación (___BottomNavigationView___). Cada pestaña nos llevará a un Fragment en específico que contendrá un texto en particular, que en otras sesiones reemplazaremos por contenido adecuado.
 
 
 
 ##### Pantallas
 
-<img src="images/product.png" width="33%"> <img src="images/cart.png" width="33%"> <img src="images/profile.png" width="33%">
+<img src="images/product.png" width="32%"> <img src="images/cart.png" width="32%"> <img src="images/profile.png" width="32%">
 
 
 
@@ -69,7 +69,7 @@ Las pantallas de registro y de login serán las mismas que desarrollamos en las 
 
 
 
-
+<img src="images/navigation.gif" width="50%">
 
 ### Lineamientos
 
