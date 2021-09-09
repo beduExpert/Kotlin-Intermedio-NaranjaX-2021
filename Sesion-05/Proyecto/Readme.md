@@ -122,6 +122,10 @@ Al dar click sobre el botón __Agregar carrito__, nos debe llevar a la pestaña 
 
 
 
+#### Resultado final
+
+<img src="images/lists.gif" width="40%">
+
 ### Recursos
 
 * El ___View___ para desplegar la calificación mediante estrellas se llama ___RatingBar___, y se utiliza de la siguiente forma:
