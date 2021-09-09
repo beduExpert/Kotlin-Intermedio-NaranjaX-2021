@@ -101,4 +101,4 @@ Saldrá una ventana en la que podrán seleccionar uno de una lista de íconos, y
 
 
 
-[`Anterior`](../Reto-02/Readme.md) | [`Siguiente`](../Reto-03/Readme.md)
+[`Anterior`](../Reto-02/Readme.md) | [`Siguiente`](../Readme.md)

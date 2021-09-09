@@ -62,6 +62,6 @@ En el caso del menú principal, el color de un elemento del BottomNavigation sel
 * [Guía de Componentes y cómo implementarlos](https://material.io/components)
 * [Índice de paquetes de com.google.android.material](https://developer.android.com/reference/com/google/android/material/packages)
 
-[`Anterior`](../Reto-02/Readme.md) | [`Siguiente`](../Postwork/Readme.md)
+[`Anterior`](../Reto-02/Readme.md) | [`Siguiente`](../Readme.md)
 
 </div>

@@ -4,7 +4,7 @@
 ## Sesión 7: Menus
 
 > <div style="text-align: justify;">
-  
+
 ### 1. Objetivos :dart: 
 
 <img src="../images/android-kotlin.png" align="right" height="120" hspace="10">
