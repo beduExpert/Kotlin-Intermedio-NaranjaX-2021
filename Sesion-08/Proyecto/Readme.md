@@ -6,7 +6,7 @@
 
 ### 1. Objetivos :dart:
 
-- Configurar lo básico en gradle.
+- Realizar una configuración básica en gradle.
 - Hacer pruebas con nuestra aplicación de _debug_.
 - Lanzar una versión de Release de nuestra aplicación.
 
