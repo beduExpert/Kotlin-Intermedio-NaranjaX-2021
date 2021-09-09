@@ -6,58 +6,46 @@
 
 ### 1. Objetivos :dart:
 
-- Implementar el uso de Menus Contextuales y Menus Flotantes.
+- Implementar el uso de Menús en nuestro Action Bar.
 
 ### 2. Requisitos :clipboard:
 
 1. Android Studio Instalado en nuestra computadora.
 
-
 ### 3. Desarrollo :computer:
 
-En este reto final, implementaremos una vista de RecyclerView utilizando CardViews que permita la edición de elementos al seleccionar una celda.
+En el desarrollo del siguiente ejercicio, implementaremos las siguientes opciones sobre nuestro Action Bar:
 
-- Las acciones sugeridas a ejecutar son:
-
-	- Duplicar
-	- Eliminar
-	- Editar
-
-![](./images/1.png)
-
-Al seleccionar una opción de menú debe verse actualizado el `RecyclerView`.
-Si se implementa la opción de Editar, debe mostrar una nueva vista para editar la información.
-
-### Flujo
-
-El flujo del proyecto comienza con la **Vista-A**, un recycler view. al seleccionar una fila o celda, debe ir a vista de detalle **Vista-B** en donde el título de la celda debe tener uno o varios campos de texto para poder editar su informacion. Con un botón salvaremos la información y regresaremos a la **Vista-A**.
-
-Flujo:
-
-```
-**Vista-A** -----[ editar ]--->| **Vista-B**
-**Vista-B** |<---[guardar y actualizar]--- **Vista-A**
-```
-
-En las opciones de cada campo de texto, se debe implementar un menú contextual con opciones propias. Estas opciones deben ser diferentes a Copiar, Pegar, Cortar texto. Se sugiere algo como, verificar correo electronico, poner texto en mayusculas, compartir en alguna red social.
-
-![](./images/2.png)
-
-
-![](./images/3.gif)
-
-
-### Lineamientos
-
-1. Se debe implementar al menos dos vistas en el proyecto.
-2. Cualquier forma de implementación de _recyclerview_ es válido.
-3. Se deben usar almenos dos tipos de menus contextuales en el proyecto, con opciones propias.
-4. Uno de los menús debe ser creado por XML y otro sin XML.
+* Opción de búsqueda, cuya funcionalidad se limite a mostrar un Toast alegando que la funcionalidad no está disponible por el momento.
+* Opción de ayuda, que tiene el propósito de redireccionarnos al sitio web oficial de bedu, en el apartado de blog.
 
 
 
+La implementación de las opciones dentro de la barra deben verse de la siguiente forma:
+
+<img src="images/menus-bar.png" width="40%">
 
 
-[`Anterior`](../Reto-03/Readme.md) | [`Siguiente`](../Postwork/Readme.md)
+
+Recordemos que la barra no está disponible para las pantallas de login ni de registro.
+
+
+
+#### Resultado
+
+A continuación se muestra cómo debe verse la barra, así como la visualización del comportamiento de cada uno de estos. No es necesario crear un nuevo *Activity* o *Fragment* para realizar la navegación, es suficiente con que el navegador nos direccione al sitio web. 
+
+<img src="images/menus.gif" width="60%">
+
+
+
+### Recursos
+
+* Sitio web de la ayuda: https://www.bedu.org
+* Nuevamente, los íconos los obtenemos mediante un *Vector Asset*.
+
+
+
+[`Anterior`](../Reto-03/Readme.md) | [`Siguiente`](../Readme.md)
 
 </div>

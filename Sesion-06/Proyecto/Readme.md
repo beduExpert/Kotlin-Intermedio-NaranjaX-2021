@@ -43,7 +43,7 @@ El tema a implementar utiliza los siguientes colores:
 
 Nótese que en el caso de los botones, a pesar de utilizar el color negro como color primario, estamos utilizando el secundario para rellenar el botón de inicio de sesión. Los inputs tienen un contorno blanco para distinguirse del fondo. Adicionalmente, no tenemos App Bar para esta pantalla. 
 
-Los casos anteriores aplican para el registro.
+Los casos anteriores se aplican para el registro.
 
 
 
@@ -59,9 +59,8 @@ En el caso del menú principal, el color de un elemento del BottomNavigation sel
 ### Herramientas de apoyo:
 
 * [Guía de aplicación de colores de Material Design](https://material.io/design/color/applying-color-to-ui.html#usage)
-* [Guía de Componentes y como implementarlos](https://material.io/components)
-* [Indice de paquetes de com.google.android.material](https://developer.android.com/reference/com/google/android/material/packages)
-
+* [Guía de Componentes y cómo implementarlos](https://material.io/components)
+* [Índice de paquetes de com.google.android.material](https://developer.android.com/reference/com/google/android/material/packages)
 
 [`Anterior`](../Reto-02/Readme.md) | [`Siguiente`](../Postwork/Readme.md)
 
