@@ -54,20 +54,12 @@ Crearemos menus contextuales flotantes.
 ---
 
 
-### 3. Proyecto :hammer:
+### 3. Proyecto (Postwork) :hammer:
 
 
 - [**`PROYECTO SESIÓN 7`**](Proyecto/Readme.md)
 
-### 4. Postwork :memo:
-
-Con lo aprendido en esta sesión, continúa con la implementación de ___Menús_ en tu proyecto.
-
-- [**`POSTWORK SESIÓN 7`**](Postwork/Readme.md)
-
-<br/>
-
 [`Anterior`](../Sesion-06/Readme.md) | [`Siguiente`](../Sesion-08/Readme.md)      
 
-</div>
+
 
