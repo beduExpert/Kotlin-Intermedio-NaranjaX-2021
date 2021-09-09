@@ -5,8 +5,8 @@
 
 <div style="text-align: justify;">
   
-  
-  
+
+
 ### Introducción
 
 Material Design es un sistema que envuelve a una guia de estilo de diseño, herramientas y componentes para aplicaciones móviles y web. La base del concepto de este es que toda la interfaz debe ser representado por materiales, (específicamente papel y tinta) y añade conceptos visuales como textura, representación de luces y sombras o altura.
@@ -59,19 +59,11 @@ Los estilos son recursos que permiten definir una serie de atributos visuales y 
 ---
 
 
-### 3. Proyecto :hammer:
+### 3. Proyecto  (Postwork):hammer:
 
-Adaptaremos nuestro proyecto al _guideline_ de Material Design sustituyendo _Components_ y personalizando nuestros _Themes_. Implementaremos _Components_ avanzados como una _Appbar_ y crearemos trancisiones animadas.
+Adaptaremos nuestro proyecto al _guideline_ de Material Design sustituyendo _Components_ y personalizando nuestros _Themes_. Implementaremos _Components_ de material para nuestras vistas.
 
 - [**`PROYECTO SESIÓN 6`**](Proyecto/Readme.md)
-
-### 4. Postwork :memo:
-
-Con lo aprendido en esta sesión, continúa con la implementación de ___Material Design___ en tu proyecto.
-
-- [**`POSTWORK SESIÓN 6`**](Postwork/Readme.md)
-
-<br/>
 
 [`Anterior`](../Sesion-05/Readme.md) | [`Siguiente`](../Sesion-07/Readme.md)      
 
