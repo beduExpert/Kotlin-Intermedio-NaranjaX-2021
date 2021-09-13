@@ -80,7 +80,7 @@ La interfaz debe quedar de la siguiente forma:
   * ![](https://via.placeholder.com/15/f03c15/000000?text=+)  Color del botón y el título: ***f03c15***
   * ![](https://via.placeholder.com/15/172126/000000?text=+) Color del background: ***#172126***
 
-[`Anterior`](../Reto-01/Readme.md) | [`Siguiente`](../Readme.md)
+[`Anterior`](../Reto-02/Readme.md) | [`Siguiente`](../Readme.md)
 
 </div>
 

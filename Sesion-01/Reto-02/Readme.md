@@ -50,7 +50,7 @@ Contemplar lo siguiente:
         <item name="android:layout_height">wrap_content</item>
     </style>
 ```
-	
+
 este estilo se utiliza en un View como:
 
 ```xml
@@ -167,6 +167,6 @@ buttonAccept.setOnClickListener {
 <br/>
 
 
-[`Anterior`](../Ejemplo-02/Readme.md) | [`Siguiente`](../Ejemplo-03/Readme.md)
+[`Anterior`](../Ejemplo-06/Readme.md) | [`Siguiente`](../Proyecto/Readme.md)
 
 </div>

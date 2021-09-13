@@ -143,6 +143,6 @@ Nuestra aplicación debe verse de la siguiente forma:
 
 
 
-[`Anterior`](../Ejemplo-05/Readme.md) | [`Siguiente`](../Ejemplo-06/Readme.md)
+[`Anterior`](../Ejemplo-04/Readme.md) | [`Siguiente`](../Ejemplo-06/Readme.md)
 
 </div>

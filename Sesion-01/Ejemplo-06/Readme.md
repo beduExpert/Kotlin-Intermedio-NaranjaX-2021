@@ -1,6 +1,6 @@
 [`Kotlin Intermedio`](../../Readme.md) > [`Sesión 02`](../Readme.md) > `Ejemplo 6`
 
-## Ejemplo 2: Inputs e imágenes
+## Ejemplo 6: Inputs e imágenes
 
 <div style="text-align: justify;">
 
