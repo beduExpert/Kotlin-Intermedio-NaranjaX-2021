@@ -1,6 +1,6 @@
 [`Kotlin Intermedio`](../../Readme.md) > [`Sesión 02`](../Readme.md) > `Ejemplo 1`
 
-## Ejemplo 2: Layouts: RelativeLayout
+## Ejemplo 1: Layouts-RelativeLayout
 
 <div style="text-align: justify;">
 
