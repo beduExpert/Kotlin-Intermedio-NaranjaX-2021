@@ -5,8 +5,8 @@
 
 <div style="text-align: justify;">
   
-  
-  
+
+
 ### Introducción
 
 La cantidad de aplicaciones disponibles en Google Play no deja de aumentar. Una de las grandes ventajas de la tienda oficial en Android es que hay muchos tipos de apps diferentes, también de multitud de estudios y desarrolladores. Esto permite que desarrolladores pequeños, que están empezando, puedan publicar sus aplicaciones en la tienda sin demasiados problemas.
@@ -60,18 +60,13 @@ Generaremos un apk de prueba para instalarlo en un dispositivo. Compilaremos un 
 ---
 
 
-### 3. Proyecto :hammer:
+### 3. Proyecto  (Postwork):hammer:
 
 Cerraremos el proyecto final y dejaremos todo listo para el siguiente nivel.
 
 - [**`PROYECTO SESIÓN 8`**](Proyecto/Readme.md)
 
 
-### 4. Postwork :memo:
-
-Con lo aprendido en esta sesión, agrega los detalles finales a tu proyecto y prepáralo para el lanzamiento a la tienda.
-
-- [**`POSTWORK SESIÓN 8`**](Postwork/Readme.md)
 
 <br/>
 
