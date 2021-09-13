@@ -28,7 +28,7 @@ Las intents pueden ser explícitas, declarando qué aplicación o componente las
 
 En este ejercicio, crearemos un flujo entre una pantalla de _Login_ y otra de datos de perfil (sesión iniciada). Para navegar entre estas dos _Activities_, utilizaremos un _Intent_ y esta llevará los datos que necesitemos comunicar.
 
-Como base, utilizaremos el proyecto desarrollado en el [Reto 2](../Sesion-01/Reto-02) de la [Sesión 1](../Sesion-01).
+Como base, utilizaremos el proyecto desarrollado en el [Reto 2](../../Sesion-01/Reto-02) de la [Sesión 1](../Sesion-01).
 
 1. En el _MainActivity_, sobreescribimos todas los callbacks del ciclo de vida para ver cómo se comporta
 
