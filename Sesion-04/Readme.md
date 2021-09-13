@@ -41,7 +41,6 @@ El proceso que siguen es básicamente el siguiente: mientras navegas por tu app 
     - [Reto  02: Navegando con acciones](./Reto-02/README.md)
 - [Ejemplo 04: SafeArgs y navegación con menús y paneles](./Ejemplo-04/README.md)
     - [Reto  03: Nueva opción en Home](./Reto-03/README.md)
-- [Postwork: Deep links](./Postwork/README.md)
 
 ---
 
