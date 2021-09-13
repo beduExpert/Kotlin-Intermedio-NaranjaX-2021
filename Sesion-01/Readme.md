@@ -67,7 +67,7 @@ Un ___View___ es una clase que representa la base de todos los componentes para 
 
 
 
-<img src="/Users/dancu/Documents/bedu/Kotlin-Intermedio-Naranja-2021/Sesion-02/images/button.png" align="right" height="90"> 
+<img src="./images/button.png" align="right" height="90"> 
 
 #### <ins>Botones y textos</ins>
 
@@ -77,7 +77,7 @@ Se crearán Vistas desde cero mediante código y las utilizaremos para detonar e
 
 ---
 
-<img src="/Users/dancu/Documents/bedu/Kotlin-Intermedio-Naranja-2021/Sesion-02/images/text_input.png" align="right" height="90"> 
+<img src="./images/text_input.png" align="right" height="90"> 
 
 #### <ins>Inputs e imágenes</ins>
 
@@ -88,7 +88,7 @@ Ampliaremos el dominio a ImageViews para la visualización de imágenes y EditTe
 
 ---
 
-<img src="/Users/dancu/Documents/bedu/Kotlin-Intermedio-Naranja-2021/Sesion-02/images/url_image.png" align="right" height="90"> 
+<img src="./images/url_image.png" align="right" height="90"> 
 
 
 

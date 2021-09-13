@@ -73,7 +73,7 @@ La interfaz debe quedar de la siguiente forma:
 
 #### Recursos
 
-* [Imagen de cabecera ](../resources/ic_shopping_bag.xml)
+* [Imagen de cabecera ](./resources/ic_shopping_bag.xml)
 
 * Colores:
 
