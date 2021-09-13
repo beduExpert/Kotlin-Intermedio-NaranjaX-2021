@@ -145,7 +145,7 @@ Al dar click sobre el botón __Agregar carrito__, nos debe llevar a la pestaña 
 
 * Los íconos de gps y vehículo en la pantalla de detalle, se obtienen del vector asset studio.
 
-[`Anterior`](../Reto-03/Readme.md) | [`Siguiente`](../Postwork/Readme.md)
+[`Anterior`](../Reto-03/Readme.md) | [`Siguiente`](../Readme.md)
 
 
 
