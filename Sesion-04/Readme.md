@@ -28,6 +28,7 @@ El componente Navigation consta de tres partes clave indicadas a continuación:
 - NavHost
 - NavController
 
+
 El proceso que siguen es básicamente el siguiente: mientras navegas por tu app le dices a NavController que quieres navegar por una ruta específica de tu gráfico de navegación, o directamente a un destino específico. Luego, NavController muestra el destino apropiado en NavHost.
 
 
@@ -39,8 +40,9 @@ El proceso que siguen es básicamente el siguiente: mientras navegas por tu app 
 - [Ejemplo 03: Agregando navegación](./Ejemplo-03/README.md)
     - [Reto 01: Agregando transiciones](./Reto-01/README.md)
     - [Reto  02: Navegando con acciones](./Reto-02/README.md)
+    <!-- 
 - [Ejemplo 04: SafeArgs y navegación con menús y paneles](./Ejemplo-04/README.md)
-    - [Reto  03: Nueva opción en Home](./Reto-03/README.md)
+    - [Reto  03: Nueva opción en Home](./Reto-03/README.md) -->
 
 ---
 
