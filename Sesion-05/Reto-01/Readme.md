@@ -6,8 +6,7 @@
 
 ### 1. Objetivos :dart:
 
-- Continuar el proceso de aprendizaje de los spinners, desarrollando vistas y acciones personalizadas similares a los vistos en el [EJEMPLO 01-A](../Ejemplo-01a)
-
+- Continuar el proceso de aprendizaje de los spinners, desarrollando vistas y acciones personalizadas.
 ### 2. Requisitos :clipboard:
 
 1. Android Studio Instalado en nuestra computadora.
@@ -18,22 +17,21 @@
 1.- Tomar el [Ejemplo 02](../Ejemplo-02) como base del siguiente ejercicio.
 
 
-Se requiere crear una pantalla con selección de país, pero que al seleccionarse, cambie el idioma de los textos en pantalla.
+Se requiere crear una pantalla con selección de país, pero que al seleccionarse, cambie el idioma de los textos en pantalla. Es decir, que cambie el texto del botón y del `TextView` en donde pide seleccionar un país.
 
 La pantalla final tiene que quedar así
 
 <img src="Images/01.png" width="33%">
 
-y al dar click al botón continuar, salga un diálgo con el saludo en su idioma: 
+**EXTRA**
 
-<img src="Images/03.png" width="33%">
+Haz que al darle click al botón mande un `Alert` con un mensaje de bienvenida en el idioma que se selecciono.
+
+<!-- 
+- Los recursos se encuentran en la carpeta [Resources](Resources/) -->
 
 
-- Los recursos se encuentran en la carpeta [Resources](Resources/)
-- La construcción del adapter, del modelo y la lógica en general es casi idéntica a la del [Reto 01](../Reto-01), así que se puede tomar de guía
-
-
-Se facilitan estas dos funciones, que sirven para generar los datos del país y para mostrar un diálogo de alerta.
+<!-- Se facilitan estas dos funciones, que sirven para generar los datos del país y para mostrar un diálogo de alerta.
 
 ```kotlin
 private fun getCountries(): ArrayList<CountryModel>{
@@ -107,7 +105,7 @@ también el xml de MainActivity
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-
+ -->
 
 
 [`Anterior`](../Ejemplo-02/Readme.md) | [`Siguiente`](../Ejemplo-03/Readme.md)
