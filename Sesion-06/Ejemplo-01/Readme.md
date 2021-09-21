@@ -6,7 +6,7 @@
 
 ### 1. Objetivos :dart:
 
-- Implementar _Components_ de Material Design en nuestra interfaz.
+- Implementar `Components` de Material Design en nuestra interfaz.
 
 ### 2. Requisitos :clipboard:
 
@@ -15,7 +15,9 @@
 
 ### 3. Desarrollo :computer:
 
-La meta de este ejercicio es simple: Agregar algunos de los components básicos a nuestro _layout_ y asignarles funcionalidad.
+La meta de este ejercicio es simple: agregar algunos de los components básicos a nuestro _layout_ y asignarles funcionalidad.
+
+Para lograrlo realiza los siguientes pasos:
 
 1. Abre __Android Studio__ y crea un nuevo proyecto con Activity Vacía (Empty Activity).
 
@@ -27,16 +29,33 @@ api 'com.google.android.material:material:1.3.0-alpha03'
 
 Esto para tener disponible los componentes.
 
-3. Para poder implementar satisfactoriamente nuestros _components_, abrimos ___res/values/styles.mxl___ y verificamos que nuestro ___AppTheme___ contenga la siguiente propiedad:
+3. Para poder implementar satisfactoriamente nuestros `components`, creamos el archivo ___res/values/styles.mxl___ y agregamos el siguiente código. Notemos nuestro ___AppTheme___.
 
-```kotlin
-parent="Theme.MaterialComponents.Light.DarkActionBar"
+```xml
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+</resources>
 ```
 
-4. Abrimos el archivo ___activity_main.xml___, donde colocaremos algunos de los componentes que nos provee la librería de material. Recordemos antes de existir la librería ___com.google.android.material___,  utilizábamos ___com.android.support:design____.
+y agregamos los siguiente colores a los values.
+
+```xml
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+```
+
+4. Abrimos el archivo ___activity_main.xml___, donde colocaremos algunos de los componentes que nos provee la biblioteca de material. Recordemos que antes de existir la biblioteca ___com.google.android.material___,  utilizábamos ___com.android.support:design___.
 
 
-Ahora, vamos a utilizar el primer _component_: ___TextInputLayout___.
+Ahora, vamos a utilizar el primer `component`: `TextInputLayout`.
 
 ```xml
 <com.google.android.material.textfield.TextInputLayout
@@ -55,14 +74,28 @@ Ahora, vamos a utilizar el primer _component_: ___TextInputLayout___.
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 ```
-Este componente es un _wrapper_ que contiene un EditText, y provee de un _label_ el la parte superior igual al hint del _EditText_ cuando el usuario ingresa un texto. El _EditText_ que utilizamos es un ___TextInputEditText___, también perteneciente a la librería de material design.
+Este componente es un `wrapper` que contiene un EditText, y provee de un `label` en la parte superior igual al hint del `EditText` cuando el usuario ingresa un texto. El `EditText` que utilizamos es un `TextInputEditText`, también perteneciente a la biblioteca de material design.
 
-Podemos agregar un _EditText_ simple para resaltar la diferencia entre estods dos.
+Podemos agregar un `EditText` simple para resaltar la diferencia entre estos dos.
 
-5. El siguiente elemento a probar, será el ___MaterialButton___, que viene preconfigurado con el estilo _Material_ por defecto, sin requerir configurar la propiedad _style_.
+```xml
+    <EditText
+        android:id="@+id/editNormal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/inputLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="Usuario"
+        android:maxLines="1"
+        android:layout_margin="4dp"/>
+```
+
+5. El siguiente elemento a probar, será el `MaterialButton`, que viene preconfigurado con el estilo _Material_ por defecto, sin requerir configurar la propiedad `style`.
 
 <img src="images/1.png" width="40%">
-Según Material Design, el botón con mayor importancia es un _contained button_, y la de menor importancia es un _text button_, por lo que vamos a replicar ese patrón:
+
+Según Material Design, el botón con mayor importancia es un _contained button_, y la de menor importancia es un `text button`, por lo que vamos a replicar ese patrón:
 
 ```xml
     <com.google.android.material.button.MaterialButton
@@ -87,9 +120,9 @@ Según Material Design, el botón con mayor importancia es un _contained button_
         app:layout_constraintTop_toBottomOf="@id/editNormal" />
 ```
 
-Como podemos observar, al _text button_ se le agrega un estilo de Material Components, mientras que el _contained_, utiliza el estilo por defecto.
+Como podemos observar, al `text button` se le agrega un estilo de Material Components, mientras que el `contained`, utiliza el estilo por defecto.
 
-Para corroborar que tanto las propiedades de estos _Buttons_ como sus métodos funcionan como cualquier _Button_, utilizaremos su _listener_: 
+Para corroborar que tanto las propiedades de estos `Buttons` como sus métodos funcionan como cualquier `Button`, utilizaremos su `listener`: 
 
 declararmos las variables:
 
@@ -98,7 +131,7 @@ private lateinit var nextButton: MaterialButton
  private lateinit var cancelButton: MaterialButton
 ```
 
-Relacionamos las variables al _View_:
+Relacionamos las variables al `View`:
 
 ```kotlin
  nextButton = findViewById(R.id.next_button)
@@ -117,7 +150,7 @@ cancelButton.setOnClickListener{
 }
 ```
 
-6. La librería contiene muchos otros componentes listos para utilizarse, implementaremos otros dos: 
+6. La biblioteca contiene muchos otros componentes listos para utilizarse, así que implementaremos otros dos: 
 
 ```xml
     <com.google.android.material.slider.Slider
@@ -141,7 +174,7 @@ cancelButton.setOnClickListener{
 
 Los cuales son un Slider y un Checkbox.
 
-7. Por último, exploraremos un componente bastante característico en _material design_: El CardView. De acuerdo al sitio oficial:
+7. Por último, exploraremos un componente bastante característico en `material design`: El CardView. De acuerdo al sitio oficial:
 
 > Cards contain content and actions about a single subject.
 
@@ -150,10 +183,10 @@ Estos elementos pueden ser una representación gráfica de un objeto o una lista
 <img src="images/3.png" width="40%">
 
 
-Agregaremos un ___CardView___ sencillo, con un header superior con color _PrimaryDark_ que simule un archivo media en la parte superior, como lo sugiere la imagen anterior. La dotaremos de un título y un subtítulo, contenidos por un _LinearLayout_ horizontal.
+Agregaremos un `CardView` sencillo, con un header superior con color `PrimaryDark` que simule un archivo media en la parte superior, como lo sugiere la imagen anterior. La dotaremos de un título y un subtítulo, contenidos por un `LinearLayout` horizontal.
 
-```kotlin
- <com.google.android.material.card.MaterialCardView
+```xml
+    <com.google.android.material.card.MaterialCardView
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/checkbox"
@@ -186,9 +219,6 @@ Agregaremos un ___CardView___ sencillo, con un header superior con color _Primar
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 ```
-
-
-
 
 [`Anterior`](../Readme.md) | [`Siguiente`](../Reto-01)
 
