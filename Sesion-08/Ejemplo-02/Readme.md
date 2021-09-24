@@ -16,11 +16,11 @@
 
 ### 3. Desarrollo :computer:
 
-Vamos a suponer una aplicación que pueda usar ciertas características, pero para poder iniciar sesión y hacer uso de otras características, requerimos adquirir la versión de paga de la app, por lo cual para una versión gratuita en la pantalla iniciar sesión, mostraremos un mensaje que nos indique que estamos en la versión gratuita.
+Pensemos que en nuestra aplicación se pueden usar ciertas características limitadas, pero para poder iniciar sesión y hacer uso de todas las características, requerimos adquirir la versión de paga de la app, por lo que mostraremos un mensaje que nos indique que estamos en la versión gratuita en la pantalla iniciar sesión, .
 
 1. Abre __Android Studio__ y crea un nuevo proyecto con Activity Vacía (Empty Activity).
 
-2. Ahora vamos a crear el login. Agregamos un _ImageView_ con el logotipo de Bedu. Agregaremos un _layout_, donde agregaremos nuestro formulario de inicio de sesión. Dicho layout se llamará _layout_content_. 
+2. Ahora vamos a crear el _login_. Agregamos un _ImageView_ con el logotipo de Bedu. Agregaremos un _layout_, donde agregaremos nuestro formulario de inicio de sesión. Dicho layout se llamará _layout_content_. 
 
 ```xml
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -90,12 +90,12 @@ debug{
         }
 ```
 
-Con esto, manifestaremos que para la versión build, agregaremos a nuestro applicationId el sufijo _debug_, por tanto, nuestro id sería: __org.bedu.buildvariant.debug__; la bandera _debugabble_ se explica sola. 
+Con esto, manifestaremos que para la versión build, agregaremos a nuestro `applicationId` el sufijo _debug_, por tanto, nuestro id sería: __org.bedu.buildvariant.debug__; la bandera _debugabble_ se explica sola. 
 
-5. Ahora, para hacer la diferenciación de la variante gratuita y pagada de la aplicación, utilizaremos el bloque ___productFlavors___.
-Podemos agregar a cualquier _productFlavor_ las configuraciones que hacemos en ___defaultConfig___, puesto que este realmente pertenece a dicho bloque.
+5. Ahora, para hacer la diferenciación de la variante gratuita y de paga para la aplicación, utilizaremos el bloque `productFlavors`.
+Podemos agregar a cualquier `productFlavor` las configuraciones que hacemos en `defaultConfig`, puesto que este realmente pertenece a dicho bloque.
 
-Cada flavor debe llevar una ___dimension___, que es el parámetro por el cuál existen variantes de la app. Se pueden declarar varias dimensiones, pero en este caso solo ocuparemos el precio, por lo que declaramos lo siguiente:
+Cada flavor debe llevar una `dimension`, que es el parámetro por el cuál existen variantes de la app. Se pueden declarar varias dimensiones, pero en este caso solo ocuparemos el precio, por lo que declaramos lo siguiente en ___app/builld.gradle___:
 
 ```kotlin
 flavorDimensions 'price'
@@ -124,11 +124,14 @@ Tendremos dos versiones: _paid_ y _free_, por lo cual declararemos nuestro bloqu
     }
 ```
 
-Sincronizamos el projecto debido a los cambios en _gradle_ y tendremos creadas nuestras ___Build Variants___ (variantes de compilación), la cual su nomenclatura es la siguiente:
+Sincronizamos el proyecto debido a los cambios en _gradle_ y tendremos creadas nuestras `Build Variants` (variantes de compilación), la cual su nomenclatura es la siguiente:
 
-> <product-flavor><Build-Type>
+```
+    <product-flavor><Build-Type>
+```
 
-Para visualizarlas, observamos la barra lateral izquierda (cerca de las herramientas de debugging) y damos click a la opción ___Build Variants___:
+
+Para visualizarlas, observamos la barra lateral izquierda (cerca de las herramientas de _debugging_) y damos click a la opción `Build Variants`:
 
 <img src="images/1.png" width="30%">
 
@@ -138,7 +141,7 @@ Nos saldrá un menú con todas las variantes:
 
 Al compilar y/o correr nuestra app, se ajustará a la versión seleccionada.
 
-6. Aunque las variantes están creadas, aún falta reemplazar el _layout_ del formulario por el aviso de app gratuita. La fuente de recursos generalizado para todas las variantes de la app se encuentran por defecto en ___app/src/main___, así que para definir un recurso específico para la variante _free_, la agregamos en la ruta ___app/src/debug___.
+6. Aunque las variantes están creadas, aún falta reemplazar el _layout_ del formulario por el aviso de app gratuita. La fuente de recursos generalizado para todas las variantes de la app se encuentran por defecto en ___app/src/main___, así que para definir un recurso específico para la variante _free_, la agregamos en la ruta ___app/src/free___.
 
 Al crear un recurso xml, la forma más rápida sería dando click derecho en _src > New > Android Resource File_, seleccionar layout y seleccionar en _Source Set_, a qué variante pertenece el recurso. En este caso será el _layout_content.mxl_
 
